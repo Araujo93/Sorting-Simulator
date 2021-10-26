@@ -1,0 +1,45 @@
+
+
+.main1 {
+    position: relative;
+    top: 80vh;
+    left: 30vw;
+    margin: 0 auto;
+   
+}
+.top-header {
+  background-color: gray;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+}
+
+.bar {
+  width: 20px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: #3a86ff;
+  transition: 0.2s all ease;
+  
+}
+
+.block_id {
+    position: absolute;
+    top: -24px;
+    width: 100%;
+    text-align: center;
+}
+.btn {
+  background-color: #8338ec;
+  color:  black;
+  font-weight: bold;
+  border-radius: 7px;
+  padding: 0.5rem 0.75rem;
+  height: 3rem;
+}
+.range {
+  float: right;
+}
