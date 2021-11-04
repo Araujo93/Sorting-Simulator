@@ -4,12 +4,12 @@ let button = document.querySelector('.btn')
 let newBtn = document.querySelector('.new-btn')
 let bubble = document.querySelector('.bubble-btn')
 let selection = document.querySelector('.selection-btn')
+let mergeBtn = document.querySelector('.merge-btn')
 let range = document.querySelector('#range')
 let speedRange = document.querySelector('#speed')
-// let s = document.querySelector('.btn')
 
 
-let speed = 500
+let speed = 100
 let array = []
 function resetArray(num = 30) {
    array = []
@@ -25,7 +25,7 @@ function createBars() {
    array.map((elem, ind) => {
    let div = document.createElement('div');
    div.classList.add('bar');
-   div.style.transform = `translateX(${ind * 22}px)`;
+   div.style.transform = `translateX(${ind}px)`;
    div.style.height = parseInt(elem + 5) + 'px'
    const label = document.createElement('label');
    label.classList.add('block_id');
@@ -48,6 +48,10 @@ bubble.addEventListener('click', () => {
 selection.addEventListener('click', () => {
    let arr = document.querySelectorAll('.bar')
    selectionSort(arr)
+})
+mergeBtn.addEventListener('click', () => {
+   let arr = document.querySelectorAll('.bar')
+   mergeSort(arr, 0, arr.length - 1)
 })
 range.addEventListener('change', () => {
    let value = range.value;
