@@ -1,4 +1,5 @@
 async function bubbleSort () {
+
     //compare adjacent values and swap larger value to the end of the array
     // continue n-1 times
     let blocks = document.querySelectorAll('.bar')
@@ -12,7 +13,7 @@ async function bubbleSort () {
                     resolve()
                 },speed)
             })
-              let value1 = parseInt(blocks[j].childNodes[0].innerText)  // 5, 3, 2 , 6
+              let value1 = parseInt(blocks[j].childNodes[0].innerText) 
               let value2 = parseInt(blocks[j+1].childNodes[0].innerText)
             if(value1 > value2) {
                 let temp1 = blocks[j+1].style.height;

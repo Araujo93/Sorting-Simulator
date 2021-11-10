@@ -7,9 +7,9 @@ let selection = document.querySelector('.selection-btn')
 let mergeBtn = document.querySelector('.merge-btn')
 let range = document.querySelector('#range')
 let speedRange = document.querySelector('#speed')
+let pressed = false
 
-
-let speed = 100
+let speed = 50
 let array = []
 function resetArray(num = 30) {
    array = []
@@ -20,10 +20,11 @@ function resetArray(num = 30) {
 }
 
 
-function createBars() {
+function createBars(num) {
+   // resetArray(num)
    bars.innerHTML = '';
    array.map((elem, ind) => {
-   let div = document.createElement('div');
+      let div = document.createElement('div');
    div.classList.add('bar');
    div.style.transform = `translateX(${ind}px)`;
    div.style.height = parseInt(elem + 5) + 'px'
@@ -35,11 +36,13 @@ function createBars() {
 
 })
 }
-
+// Reset button. MergeSort takes an auxillary relay so a boolean was used to stop the animations
 newBtn.addEventListener('click', () => {
-   let s = resetArray()
+    pressed = true
+   let arr = document.querySelectorAll('.bar')
+   resetArray(arr.length)
    range.value = 30
-   return createBars(s)
+   return createBars()
 })
 bubble.addEventListener('click', () => {
    let arr = document.querySelectorAll('.bar')
@@ -63,6 +66,7 @@ speedRange.addEventListener('change', () => {
    speed = value
 })
 
+// function to generate random number between min and max;
 function randomIntFromInterval(min, max) {
    return Math.floor(Math.random() * (max - min + 1) + min);
 }
