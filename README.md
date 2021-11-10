@@ -7,4 +7,5 @@ The Bars turn yellow once sorted.
 
 Tech Stack: Javascript
 
-https://www.loom.com/share/4111e0a55e0a4b0ca1c2052a73619961
+Bubble Sort
+
