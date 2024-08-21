@@ -9,25 +9,49 @@
 </head>
 <body>
     <header>
-        <div class='top-header'>
-            <h1>SortingVisualizer</h1>
-            <div class="btn_container"> 
 
-                <button class='btn bubble-btn'>Bubble</button>
-                <button class='btn selection-btn'>Selection</button>
-                <button class='btn insertion-btn' >Insertion</button>
-                <button class='btn merge-btn'>Merge</button>
-                <button class='btn new-btn'>Generate new array</button>
-            </div>
-            <div class="range_container">
+        <nav class='top-header'>
+            <!-- <div>
+
+            </div> -->
+            <h1 class="header-logo">SortingVisualizer</h1>
+            
+            <div class="btn-container"> 
+                <div class="aa">
+
+                    <button class='btn new-btn'>Generate new array</button>
+                    
+                    <!-- <div class="float"> -->
+                        <div class="range_container">
+                            <!-- </div> -->
+                            
+                            <div class="range-1">
+                                <label class='range' for="range">Size</label>
+                                <input class='range' id='range' type="range" step='2'  min='6' max='60' name="range" id="range" value="30">
+                            </div>
+                            <div class="range-1">
+                                <label class='speed' for="speed">Speed</label>
+                                <input class='speed' id='speed' type="range" step=10  min='20' max='300' name="range" value="60" id="range">
+                            </div>
+                        </div>
+                    </div>
                 
-                <label class='range' for="range">Select a size!</label>
-                <input class='range' id='range' type="range" step='2'  min='5' max='60' name="range" id="range">
-                <label class='' for="speed">Select a speed!</label>
-                <input class='speed' id='speed' type="range" step='-10'  min='10' max='250' name="range" id="range">
-                
+                <div class="sorting-container">
+                    <button class='btn bubble-btn'>Bubble Sort</button>
+                    <button class='btn selection-btn'>Selection Sort</button>
+                    <button class='btn merge-btn'>Merge Sort</button>
+                    <button class='btn insertion-btn'>Insertion Sort</button>
+                    <button class='btn quick-btn'>Quick Sort</button>
+                </div>
+
             </div>
-        </div>
+
+         
+
+
+        </nav>
+
+
     </header>
     
     <div class='main1'></div>
@@ -36,5 +60,7 @@
     <script src="sorting/bubble.js"></script>
     <script src="sorting/selection.js"></script>
     <script src="sorting/merge.js"></script>
+    <script src="sorting/insertion.js"></script>
+    <script src="sorting/quick.js"></script>
 </body>
 </html>

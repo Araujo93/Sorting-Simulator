@@ -1,11 +1,17 @@
 
 async function mergeSort () {
 
+      // green    #73AB84  
+    // blue     #6279B8 
+    // white    #FFFBFA
+    // black    #1E2019
+    // magenta  #92374D
+
+
   const animations = getMergeSortAnimations(array);
   for (let i = 0; i < animations.length; i++) {
     const arrayBars = document.querySelectorAll('.bar')
-    if(pressed) return
-
+  
      const isColorChange = i % 3 !== 2;
 
      if (isColorChange) {
@@ -14,7 +20,7 @@ async function mergeSort () {
        const barOneStyle = arrayBars[barOneIdx].style;
        const barTwoStyle = arrayBars[barTwoIdx].style;
       
-       const color = i % 3 === 0 ? 'red' : 'green';
+       const color = i % 3 === 0 ? '#92374D' : '#fecf48';
       
           barOneStyle.backgroundColor = color;
           barTwoStyle.backgroundColor = color;
@@ -39,14 +45,13 @@ async function mergeSort () {
       await new Promise((resolve) => {
         setTimeout(() => {
           const [barOneIdx, newHeight] = animations[i];
-          arrayBars[barOneIdx].style.backgroundColor = 'yellow'
+          arrayBars[barOneIdx].style.backgroundColor = '#73AB84'
           resolve()
       }, speed);
     })
      
     
   }
- 
  }
 
 
@@ -130,3 +135,13 @@ function getMergeSortAnimations(array) {
    }
  }
 
+ const mergeBtnSort = document.querySelector(".merge-btn");
+ mergeBtnSort.addEventListener('click', async function(){
+  disableSortingBtn();
+  disableSizeSlider();
+  disableNewArrayBtn();
+  await mergeSort();
+  enableSortingBtn();
+  enableSizeSlider();
+  enableNewArrayBtn();
+ });

@@ -1,57 +1,71 @@
-
-
 async function selectionSort () {
+
   let blocks = document.querySelectorAll('.bar')
+
    let prev;
+
     for(let i = 0; i < blocks.length-1; i++) {
+
         let min = i;
+
+        // Change color of the position to swap with the next min
+        blocks[i].style.backgroundColor = '#92374D'; // magenta 
+
         for(let j = i+1; j< blocks.length; j++) {
-          blocks[i].style.backgroundColor = '#ff006e'; // PINK
+          // Change color for the current comparision (in consideration for min_index)
+          blocks[j].style.backgroundColor = '#92374D'; // magenta 
+
             if(parseInt(blocks[j].childNodes[0].innerText) < parseInt(blocks[min].childNodes[0].innerText)) {
-             if (prev) prev.style.backgroundColor = '#3a86ff' // BLUE
-             blocks[j].style.backgroundColor = '#ff006e' // PINK
+
+             if (prev) { 
+              prev.style.backgroundColor = '#6279B8' // BLUE
+              blocks[j].style.backgroundColor = '#92374D' // magenta 
+
+            } 
+            
               prev = blocks[j]
-                min = j
+              min = j
                 
-                await new Promise((resolve) =>
-                setTimeout(() => {
-                  resolve();
-                }, speed)
-              );
+                await promiseTimout(speed)
 
-            }  
+            } else {
+              blocks[j].style.backgroundColor = '#fecf48'  // yellow
+              await promiseTimout(speed)
+              blocks[j].style.backgroundColor = '#6279B8' // BLUE
 
-            else {
-              blocks[j].style.backgroundColor = 'black' // purple
-              await new Promise((resolve) =>
-              setTimeout(() => {
-                resolve();
-              }, speed)
-            );
-            blocks[j].style.backgroundColor = '#3a86ff' // BLUE
 
             } 
         }
-        if(blocks[min].childNodes[0].innerText !== blocks[i].childNodes[0].innerText) {
-        let temp1 = blocks[i].style.height;
-        let temp2 = blocks[i].childNodes[0].innerText;
-        blocks[i].style.backgroundColor = '#ffbe0b' // YELLOW
-        blocks[min].style.backgroundColor = '#ffbe0b'
-        blocks[i].childNodes[0].innerText = blocks[min].childNodes[0].innerText;
-        blocks[i].style.height = blocks[min].style.height;
-        blocks[min].style.height = temp1;
-        blocks[min].childNodes[0].innerText = temp2;
-        await new Promise((resolve) =>
-        setTimeout(() => {
-          resolve();
-        }, speed)
-      );
-      prev.style.backgroundColor = '#ffbe0b'
+        
+        if(min !== i) {
 
-        }
-        blocks[min].style.backgroundColor = '#ffbe0b' // blue
+          await promiseTimout(speed)
 
-
+        swap(blocks[min], blocks[i])
+        
+      
+      blocks[min].style.backgroundColor = '#73AB84' // green 
     }
+
+      blocks[i].style.background = '#73AB84'; // green 
+
+  }
+
+  for (let i =0; i < blocks.length; i++) {
+    blocks[i].style.background = '#73AB84'; // green 
+
+  }
+ 
     return
 }
+
+const selectionBtnSort = document.querySelector(".selection-btn");
+selectionBtnSort.addEventListener('click', async function(){
+ disableSortingBtn();
+ disableSizeSlider();
+ disableNewArrayBtn();
+ await selectionSort();
+ enableSortingBtn();
+ enableSizeSlider();
+ enableNewArrayBtn();
+});
