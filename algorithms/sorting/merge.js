@@ -1,13 +1,6 @@
 
 async function mergeSort () {
 
-      // green    #73AB84  
-    // blue     #6279B8 
-    // white    #FFFBFA
-    // black    #1E2019
-    // magenta  #92374D
-
-
   const animations = getMergeSortAnimations(array);
   for (let i = 0; i < animations.length; i++) {
     const arrayBars = document.querySelectorAll('.bar')
